@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split        # To split up dataset for model
 from sklearn.feature_extraction.text import TfidfVectorizer  # To give natural language numerical values 
@@ -8,7 +7,7 @@ data = pd.read_csv(r'C:\Users\mattg\OneDrive\Desktop\Data_Science_Projects\FakeN
 
 data['fake'] = data['label'].apply(lambda x: 0 if x == 'REAL' else 1)   # Creates column for fake : If label is real, then 1, else 0
 data = data.drop('label', axis = 1)
-
+    
 X, y = data['text'], data['fake']
 
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2)   # Split up X and y
